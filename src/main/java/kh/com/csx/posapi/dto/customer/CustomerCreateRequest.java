@@ -1,0 +1,62 @@
+package kh.com.csx.posapi.dto.customer;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+
+@Data
+public class CustomerCreateRequest {
+    @NotNull(message = "Customer group ID is required.")
+    private Long customerGroupId;
+
+    @Size(max = 255, message = "Company (EN) must be at most 255 characters")
+    private String companyEn;
+
+    @Size(max = 255, message = "Company (KH) must be at most 255 characters")
+    private String companyKh;
+
+    @NotEmpty(message = "Name (EN) is required")
+    @Size(max = 255, message = "Name (EN) must be at most 255 characters")
+    private String nameEn;
+
+    @Size(max = 255, message = "Name (KH) must be at most 255 characters")
+    private String nameKh;
+
+    @Size(max = 255, message = "VAT number should not exceed {max} characters.")
+    private String vatNo;
+
+    @Size(max = 20, message = "Gender must be at most 20 characters")
+    private String gender;
+
+    @Size(max = 50, message = "Contact must be at most 50 characters")
+    private String contactPerson;
+
+    @Size(max = 50, message = "Phone must be at most 50 characters")
+    private String phone;
+
+    @Email(message = "Email must be a valid email address containing '@'")
+    @Size(max = 50, message = "Email must be at most 50 characters")
+    private String email;
+
+    @Size(max = 255, message = "City must be at most 255 characters")
+    private String city;
+
+    @Size(max = 255, message = "State must be at most 255 characters")
+    private String state;
+
+    @Size(max = 255, message = "Postal code must be at most 255 characters")
+    private String postalCode;
+
+    @Size(max = 255, message = "Address (EN) must be at most 255 characters")
+    private String addressEn;
+
+    @Size(max = 255, message = "Address (KH) must be at most 255 characters")
+    private String addressKh;
+
+    @Size(max = 255, message = "Country must be at most 255 characters")
+    private String country;
+
+    private String description;
+}
